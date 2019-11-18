@@ -4,13 +4,27 @@ import {GraphQLServer} from 'graphql-yoga'
 const typeDefs = resolve(__dirname, 'schema.graphql');
 
 const USERS = [
-    {id: 1, name: 'Tony Stark'},
-    {id: 2, name: 'Spider Man'},
+    {id: 1, name: 'Tony Stark', email: 'ironman@marvel.com'},
+    {id: 2, name: 'Peter Parker', email: 'spiderman@marvel.com'},
+    {id: 3, name: 'Steve Rogers', email: 'captain@marvel.com'}
 ];
 
 const resolvers = {
     Query: {
         users: () => USERS
+    },
+    Mutation: {
+        createUser: (parent, args, ctx, info) => {
+            console.log('ARGS', args);
+
+            const { data } = args;
+            const user = {
+                ...data,
+                id: USERS.length + 1
+            };
+            USERS.push(user);
+            return user;
+        }
     }
 };
 
