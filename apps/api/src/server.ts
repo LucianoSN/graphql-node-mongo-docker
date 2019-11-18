@@ -13,7 +13,7 @@ const resolvers = {
 	User: {
 		name: (parent): string => {
 			// console.log('PARENT', parent);
-			return `User: ${parent.name}`;
+			return `User1: ${parent.name}`;
 		},
 	},
 	Query: {

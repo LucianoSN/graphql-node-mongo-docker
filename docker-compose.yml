@@ -1,0 +1,9 @@
+version: '3.4'
+
+services:
+
+  api:
+    container_name: myfood_api
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile

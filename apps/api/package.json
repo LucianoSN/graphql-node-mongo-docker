@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/index.ts",
+    "dockerdev": "nodemon --legacy-watch src/index.ts",
     "prettier": "prettier --write **/*.{ts,js,css,html}"
   },
   "devDependencies": {
