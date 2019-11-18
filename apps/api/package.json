@@ -1,0 +1,15 @@
+{
+  "name": "myfood",
+  "version": "1.0.0",
+  "description": "graphql + mongodb + node + typescript",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.ts "
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4",
+    "sucrase": "^3.10.1",
+    "typescript": "^3.7.2"
+  }
+}
