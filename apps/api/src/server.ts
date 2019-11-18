@@ -10,13 +10,17 @@ const USERS = [
 ];
 
 const resolvers = {
+    User: {
+        name: (parent) => {
+            console.log('PARENT', parent);
+            return `User: ${parent.name}`;
+        }
+    },
     Query: {
         users: () => USERS
     },
     Mutation: {
         createUser: (parent, args, ctx, info) => {
-            console.log('ARGS', args);
-
             const { data } = args;
             const user = {
                 ...data,
