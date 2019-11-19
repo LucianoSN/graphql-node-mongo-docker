@@ -7,9 +7,9 @@ export enum UserRole {
 
 export interface User {
 	_id: Schema.Types.ObjectId;
-	name: String;
-	email: String;
-	password: String;
+	name: string;
+	email: string;
+	password: string;
 	role: UserRole;
 }
 

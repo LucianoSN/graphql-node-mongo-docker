@@ -1,13 +1,13 @@
 import { Schema, Document } from 'mongoose';
 
-export interface ProductTypes {
+export interface Product {
 	_id: Schema.Types.ObjectId;
-	name: String;
-	description: String;
-	price: Number;
-	unit: String;
+	name: string;
+	description: string;
+	price: number;
+	unit: string;
 }
 
-export interface ProductDocument extends ProductTypes, Document {
+export interface ProductDocument extends Product, Document {
 	_id: Schema.Types.ObjectId;
 }
