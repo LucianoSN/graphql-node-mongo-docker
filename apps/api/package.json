@@ -10,6 +10,7 @@
     "prettier": "prettier --write **/*.{ts,js,css,html}"
   },
   "devDependencies": {
+    "@types/mongoose": "^5.5.32",
     "@types/node": "^12.12.8",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
@@ -27,6 +28,7 @@
     "typescript": "^3.7.2"
   },
   "dependencies": {
-    "graphql-yoga": "^1.18.3"
+    "graphql-yoga": "^1.18.3",
+    "mongoose": "^5.7.11"
   }
 }

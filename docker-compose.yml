@@ -7,6 +7,8 @@ services:
     build:
       context: ./apps/api
       dockerfile: Dockerfile
+    environment:
+      MONGO_URI:
 
   mongo:
     container_name: myfood_mongo
