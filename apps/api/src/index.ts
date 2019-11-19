@@ -1,5 +1,5 @@
 import server from './server';
-import { connect} from './models'
+import { connect } from './models';
 
 const { PORT: port = 4000 } = process.env;
 
