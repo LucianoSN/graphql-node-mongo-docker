@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { User } from '../types';
+import {User, UserDocument} from '../types';
 
 const userSchema = new Schema({
 	name: {
@@ -25,4 +25,4 @@ const userSchema = new Schema({
 	},
 });
 
-export default model('User', userSchema);
+export default model<UserDocument>('User', userSchema);
