@@ -5,3 +5,4 @@ export * from './orderItemTypes';
 export * from './modelsTypes';
 export * from './contextTypes';
 export * from './resolverTypes';
+export * from './utilityTypes';

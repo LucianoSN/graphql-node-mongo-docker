@@ -1,9 +1,16 @@
 type Product {
 	_id: ID!
 	name: String!
-	description: String!
+	description: String
 	price: Float!
 	unit: Unit!
+}
+
+input ProductCreateInput {
+    name: String!
+    description: String
+    price: Float!
+    unit: Unit!
 }
 
 enum Unit {
@@ -15,4 +22,8 @@ enum Unit {
 
 type Query {
     products: [Product!]!
+}
+
+type Mutation {
+    createProduct(data: ProductCreateInput!): Product!
 }
