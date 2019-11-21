@@ -16,3 +16,7 @@ export interface ProductDocument extends Product, Document {
 export interface ProductCreateInput {
 	data: OmitId<Product>;
 }
+
+export interface ProductDeleteInput {
+	_id: Schema.Types.ObjectId;
+}
