@@ -1,18 +1,18 @@
-type User {
-    id: ID!
-    name: String!
-    email: String!
+type Product {
+	_id: ID!
+	name: String!
+	description: String!
+	price: Float!
+	unit: Unit!
 }
 
-input UserInput {
-    name: String!
-    email: String!
+enum Unit {
+	UN
+	LT
+	GR
+	KG
 }
 
 type Query {
-    users: [User]!
-}
-
-type Mutation {
-    createUser(data: UserInput!): User!
+    products: [Product!]!
 }
