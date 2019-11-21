@@ -1,4 +1,9 @@
-import { ProductCreateInput, ProductDeleteInput, Resolver } from '../types';
+import {
+	ProductCreateInput,
+	ProductDeleteInput,
+	ProductUpdateInput,
+	Resolver,
+} from '../types';
 
 const createProduct: Resolver<ProductCreateInput> = (_, args, { db }) => {
 	const { Product } = db;
@@ -6,6 +11,13 @@ const createProduct: Resolver<ProductCreateInput> = (_, args, { db }) => {
 
 	const product = new Product(data);
 	return product.save();
+};
+
+const updateProduct: Resolver<ProductUpdateInput> = (_, args, { db }) => {
+	const { Product } = db;
+	const { _id, data } = args;
+
+	return Product.findByIdAndUpdate(_id, data, { new: true });
 };
 
 const deleteProduct: Resolver<ProductDeleteInput> = async (_, args, { db }) => {
@@ -17,5 +29,6 @@ const deleteProduct: Resolver<ProductDeleteInput> = async (_, args, { db }) => {
 
 export default {
 	createProduct,
+	updateProduct,
 	deleteProduct,
 };

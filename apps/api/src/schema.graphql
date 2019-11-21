@@ -13,6 +13,13 @@ input ProductCreateInput {
     unit: Unit!
 }
 
+input ProductUpdateInput {
+    name: String
+    description: String
+    price: Float
+    unit: Unit
+}
+
 enum Unit {
 	UN
 	LT
@@ -26,5 +33,6 @@ type Query {
 
 type Mutation {
     createProduct(data: ProductCreateInput!): Product!
+    updateProduct(data: ProductUpdateInput!, _id: ID!): Product!
     deleteProduct(_id: ID!): Product!
 }
