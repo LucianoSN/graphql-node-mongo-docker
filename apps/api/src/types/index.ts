@@ -6,3 +6,4 @@ export * from './modelsTypes';
 export * from './contextTypes';
 export * from './resolverTypes';
 export * from './utilityTypes';
+export * from './utilsTypes';
