@@ -29,6 +29,7 @@ enum Unit {
 
 type Query {
     products: [Product!]!
+    product(_id: ID!): Product!
 }
 
 type Mutation {
