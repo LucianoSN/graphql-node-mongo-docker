@@ -1,0 +1,16 @@
+{
+  "name": "MyFood GraphQL Schema",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Default GraphQL Endpoint": {
+        "url": "http://localhost:4000",
+        "headers": {
+          "user-agent": "JS GraphQL",
+          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZGQ4MzRiNWUxYWI1YjI5Mzg0MWZkOTciLCJyb2xlIjoiVVNFUiIsImlhdCI6MTU3NDQ2MjQ5MywiZXhwIjoxNTc0NDY5NjkzfQ.PsqqGacF0BdY2-nE6_CH7tppP8dExnjO7Io-BaOOOZI"
+        },
+        "introspect": false
+      }
+    }
+  }
+}

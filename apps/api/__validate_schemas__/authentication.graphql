@@ -1,0 +1,27 @@
+mutation SignInMutation {
+    signin(data: { email: "batman@dc.com", password: "12345678" }) {
+        token
+        user {
+            _id
+            name
+            email
+            role
+        }
+    }
+}
+
+mutation SignUpMutation {
+    signup(data: {
+        name: "Batman"
+        email: "batman@dc.com"
+        password: "12345678"
+    }) {
+        token
+        user{
+            _id
+            name
+            email
+            role
+        }
+    }
+}

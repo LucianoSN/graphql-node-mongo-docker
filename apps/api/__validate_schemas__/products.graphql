@@ -1,0 +1,55 @@
+query ProductsQuery{
+    products {
+        _id
+        name
+        description
+        price
+        unit
+    }
+}
+
+query ProductQuery{
+    product(_id: "5dd8152b7ff39b3344071bd7"){
+        _id
+        name
+        description
+        price
+        unit
+    }
+}
+
+mutation ProductMutation {
+    createProduct(data: {
+        name: "Pizza Presunto e Mussarela"
+        price: 30.00
+        unit: UN
+    })
+    {
+        _id
+        name
+        description
+        price
+        unit
+    }
+}
+
+mutation DeleteProductMutation{
+    deleteProduct(_id: "5dd6d4d3bf92db02989e2f75xx"){
+        _id
+        name
+        price
+    }
+}
+
+mutation UpdateProductMutation{
+    updateProduct(_id: "5dd6b1b1fcc8140193066dc8xx", data: {
+        description: "Saborosa pizza"
+        name: "Pizza Calabresa"
+    }){
+        _id
+        name
+        description
+        price
+        unit
+    }
+}
