@@ -1,3 +1,28 @@
+# User
+enum UserRole {
+    USER
+    ADMIN
+}
+
+type User {
+    _id: ID!
+    name: String!
+    email: String!
+    role: UserRole!
+}
+
+input UserSignupInput {
+    name: String!
+    email: String!
+    password: String!
+}
+
+type AuthPayload {
+    token: String!
+    user: User!
+}
+
+# Product
 type Product {
 	_id: ID!
 	name: String!
@@ -33,6 +58,7 @@ type Query {
 }
 
 type Mutation {
+    signup(data: UserSignupInput!): AuthPayload!
     createProduct(data: ProductCreateInput!): Product!
     updateProduct(data: ProductUpdateInput!, _id: ID!): Product!
     deleteProduct(_id: ID!): Product!

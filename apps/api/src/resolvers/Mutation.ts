@@ -1,9 +1,14 @@
+import { hash } from 'bcryptjs';
+import { sign } from 'jsonwebtoken';
+
 import {
 	ProductCreateInput,
 	ProductByIdInput,
 	ProductUpdateInput,
 	Resolver,
+	UserSignUpInput,
 } from '../types';
+
 import { checkExistence } from '../utils';
 
 const createProduct: Resolver<ProductCreateInput> = (_, args, { db }) => {
@@ -42,8 +47,29 @@ const deleteProduct: Resolver<ProductByIdInput> = async (_, args, { db }) => {
 	return Product.findByIdAndRemove(_id);
 };
 
+const signup: Resolver<UserSignUpInput> = async (_, args, { db }) => {
+	const { User } = db;
+	const { data } = args;
+
+	const password = await hash(data.password, 10);
+
+	const user = await new User({
+		...data,
+		password,
+	}).save();
+
+	const { _id: sub, role } = user;
+
+	const token = sign({ sub, role }, process.env.JWT_SECRET, {
+		expiresIn: '2h',
+	});
+
+	return { token, user };
+};
+
 export default {
 	createProduct,
 	updateProduct,
 	deleteProduct,
+	signup,
 };
