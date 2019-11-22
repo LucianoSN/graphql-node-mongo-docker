@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 import server from './server';
 import { connect } from './models';
 

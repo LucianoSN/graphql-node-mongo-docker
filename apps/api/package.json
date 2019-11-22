@@ -28,6 +28,7 @@
     "typescript": "^3.7.2"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
     "graphql-middleware": "^4.0.2",
     "graphql-yoga": "^1.18.3",
     "mongoose": "^5.7.11"

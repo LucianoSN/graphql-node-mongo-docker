@@ -7,7 +7,16 @@ const isMongoId = (value: string): boolean => Types.ObjectId.isValid(value);
 const checkExistence = async (
 	opts: CheckExistenceOptions
 ): Promise<boolean> => {
-	const { model, db, field, value, where, message } = opts;
+	const {
+		model,
+		db,
+		field,
+		value,
+		where,
+		message,
+		errorCode,
+		extensions,
+	} = opts;
 
 	if (field === '_id' && !isMongoId(value)) {
 		throw new CustomError(
@@ -21,7 +30,8 @@ const checkExistence = async (
 	if (!exists) {
 		throw new CustomError(
 			message || `${model} with ${field} '${value}' not found!`,
-			'NOT_FOUND_ERROR'
+			errorCode || 'NOT_FOUND_ERROR',
+			extensions
 		);
 	}
 

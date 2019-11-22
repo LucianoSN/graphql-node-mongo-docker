@@ -1,5 +1,6 @@
 // @ts-ignore
 import mongoose from 'mongoose';
+
 import { resolve } from 'path';
 import { readdirSync } from 'fs';
 import { Models } from '../types';
