@@ -1,5 +1,4 @@
 import { hash, compare } from 'bcryptjs';
-import { sign } from 'jsonwebtoken';
 
 import {
 	ProductCreateInput,
@@ -10,7 +9,7 @@ import {
 	UserSignInInput,
 } from '../types';
 
-import { checkExistence } from '../utils';
+import { checkExistence, issueToken } from '../utils';
 import { CustomError } from '../erros';
 import { privateEncrypt } from 'crypto';
 
@@ -66,10 +65,7 @@ const signin: Resolver<UserSignInInput> = async (_, args, { db }) => {
 	if (!isValid) throw error;
 
 	const { _id: sub, role } = user;
-
-	const token = sign({ sub, role }, process.env.JWT_SECRET, {
-		expiresIn: '2h',
-	});
+	const token = issueToken({ sub, role });
 
 	return { token, user };
 };
@@ -86,10 +82,7 @@ const signup: Resolver<UserSignUpInput> = async (_, args, { db }) => {
 	}).save();
 
 	const { _id: sub, role } = user;
-
-	const token = sign({ sub, role }, process.env.JWT_SECRET, {
-		expiresIn: '2h',
-	});
+	const token = issueToken({ sub, role });
 
 	return { token, user };
 };
