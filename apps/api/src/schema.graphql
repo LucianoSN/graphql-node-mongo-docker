@@ -1,3 +1,5 @@
+directive @auth(role: UserRole = USER) on FIELD_DEFINITION
+
 # User
 enum UserRole {
     USER
@@ -58,8 +60,8 @@ enum Unit {
 }
 
 type Query {
-    products: [Product!]!
-    product(_id: ID!): Product!
+    products: [Product!]! @auth
+    product(_id: ID!): Product! @auth(role: ADMIN)
 }
 
 type Mutation {

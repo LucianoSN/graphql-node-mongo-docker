@@ -11,7 +11,6 @@ import {
 
 import { checkExistence, issueToken } from '../utils';
 import { CustomError } from '../erros';
-import { privateEncrypt } from 'crypto';
 
 const createProduct: Resolver<ProductCreateInput> = (_, args, { db }) => {
 	const { Product } = db;

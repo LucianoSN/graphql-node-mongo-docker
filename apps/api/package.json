@@ -33,6 +33,7 @@
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "graphql-middleware": "^4.0.2",
+    "graphql-tools": "^4.0.6",
     "graphql-yoga": "^1.18.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.11"
