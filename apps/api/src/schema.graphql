@@ -11,7 +11,12 @@ type User {
     role: UserRole!
 }
 
-input UserSignupInput {
+input UserSignInInput {
+    email: String!
+    password: String!
+}
+
+input UserSignUpInput {
     name: String!
     email: String!
     password: String!
@@ -58,7 +63,8 @@ type Query {
 }
 
 type Mutation {
-    signup(data: UserSignupInput!): AuthPayload!
+    signin(data: UserSignInInput!): AuthPayload!
+    signup(data: UserSignUpInput!): AuthPayload!
     createProduct(data: ProductCreateInput!): Product!
     updateProduct(data: ProductUpdateInput!, _id: ID!): Product!
     deleteProduct(_id: ID!): Product!
