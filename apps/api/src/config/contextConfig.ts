@@ -6,6 +6,7 @@ const context = (ctx: ContextParameters): Context => {
 	return {
 		...ctx,
 		db,
+		authUser: null,
 	};
 };
 
