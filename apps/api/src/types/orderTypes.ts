@@ -1,5 +1,10 @@
 import { Document, Types } from 'mongoose';
-import { OrderItemCreateInput, OrderItemSubdocument, User } from '.';
+import {
+	OrderItemCreateInput,
+	OrderItemSubdocument,
+	OrderItemUpdateInput,
+	User,
+} from '.';
 
 export enum OrderStatus {
 	WAITING_PAYMENT,
@@ -30,6 +35,12 @@ export interface OrderByIdArgs {
 
 type OrderCreateInput = Pick<Order, 'status' | 'user'>;
 
+interface OrderUpdateInput extends OrderCreateInput {
+	itemsToAdd: OrderItemCreateInput[];
+	itemsToUpdate: OrderItemUpdateInput[];
+	itemsToDelete: string[];
+}
+
 export interface OrderCreateArs {
 	data: OrderCreateInput & {
 		items: OrderItemCreateInput[];
@@ -38,4 +49,8 @@ export interface OrderCreateArs {
 
 export interface OrderDeleteArgs {
 	_id: string;
+}
+
+export interface OrderUpdateArgs extends OrderDeleteArgs {
+	data: OrderUpdateInput;
 }

@@ -1,5 +1,5 @@
 import {
-	OrderByIdInput,
+	OrderByIdArgs,
 	OrderDocument,
 	ProductByIdInput,
 	ProductDocument,
@@ -16,7 +16,7 @@ const orders: Resolver<{}> = (_, args, { db, authUser }) => {
 	return Order.find(conditions);
 };
 
-const order: Resolver<OrderByIdInput> = (_, args, { db, authUser }) => {
+const order: Resolver<OrderByIdArgs> = (_, args, { db, authUser }) => {
 	const { _id } = args;
 	const { _id: userId, role } = authUser;
 
