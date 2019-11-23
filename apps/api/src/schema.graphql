@@ -115,6 +115,7 @@ type Mutation {
     signin(data: UserSignInInput!): AuthPayload!
     signup(data: UserSignUpInput!): AuthPayload!
     createOrder(data: OrderCreateInput!): Order! @auth
+    deleteOrder(_id: ID!): Order! @auth
     createProduct(data: ProductCreateInput!): Product!
     updateProduct(data: ProductUpdateInput!, _id: ID!): Product!
     deleteProduct(_id: ID!): Product!

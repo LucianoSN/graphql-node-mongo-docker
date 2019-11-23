@@ -2,6 +2,8 @@ import { compare, hash } from 'bcryptjs';
 
 import {
 	OrderCreateArs,
+	OrderDeleteArgs,
+	OrderDocument,
 	ProductByIdInput,
 	ProductCreateInput,
 	ProductDocument,
@@ -104,6 +106,27 @@ const createOrder: Resolver<OrderCreateArs> = async (
 		0;
 
 	return await new Order({ ...data, total, user }).save();
+};
+
+const deleteOrder: Resolver<OrderDeleteArgs> = async (
+	_,
+	args,
+	{ db, authUser }
+) => {
+	const { _id } = args;
+	const { _id: userId, role } = authUser;
+
+	const where = role === UserRole.USER ? { _id, user: userId } : null;
+
+	const order = await findDocument<OrderDocument>({
+		db,
+		model: 'Order',
+		field: '_id',
+		value: _id,
+		where,
+	});
+
+	return order.remove();
 };
 
 export default {

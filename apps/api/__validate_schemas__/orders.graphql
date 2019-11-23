@@ -19,3 +19,7 @@ query OrderQuery {
 #
 #    })
 #}
+
+#mutation DeleteOrderMutation {
+#    deleteOrder(id: ) { }
+
