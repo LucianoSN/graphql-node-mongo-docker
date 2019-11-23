@@ -1,0 +1,7 @@
+query OrdersQuery {
+    orders {
+        _id
+        total
+        status
+    }
+}

@@ -1,8 +1,8 @@
 import { Schema, Document } from 'mongoose';
 
 export enum UserRole {
-	USER,
-	ADMIN,
+	USER = 'USER',
+	ADMIN = 'ADMIN',
 }
 
 export interface User {
