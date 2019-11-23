@@ -1,5 +1,5 @@
 import { Schema, Document, Types } from 'mongoose';
-import { OrderItemSubdocument, User } from '.';
+import { OrderItemCreateInput, OrderItemSubdocument, User } from '.';
 
 export enum OrderStatus {
 	WAITING_PAYMENT,
@@ -26,4 +26,12 @@ export interface OrderDocument extends Order, Document {
 
 export interface OrderByIdInput {
 	_id: Schema.Types.ObjectId;
+}
+
+type OrderCreateInput = Pick<Order, 'status' | 'user'>;
+
+export interface OrderCreateArs {
+	data: OrderCreateInput & {
+		items: OrderItemCreateInput[];
+	};
 }

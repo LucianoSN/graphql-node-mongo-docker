@@ -7,9 +7,15 @@ query OrdersQuery {
 }
 
 query OrderQuery {
-    order(_id: "") {
+    order(_id: "xx") {
         _id
         total
         status
     }
 }
+
+#mutation CreateOrderMutation {
+#    createOrder(data: {
+#
+#    })
+#}

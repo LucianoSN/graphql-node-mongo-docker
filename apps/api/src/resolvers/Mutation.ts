@@ -1,13 +1,15 @@
-import { hash, compare } from 'bcryptjs';
+import { compare, hash } from 'bcryptjs';
 
 import {
-	ProductCreateInput,
+	OrderCreateArs,
 	ProductByIdInput,
+	ProductCreateInput,
+	ProductDocument,
 	ProductUpdateInput,
 	Resolver,
-	UserSignUpInput,
+	UserRole,
 	UserSignInInput,
-	ProductDocument,
+	UserSignUpInput,
 } from '../types';
 
 import { findDocument, issueToken } from '../utils';
@@ -86,10 +88,29 @@ const signup: Resolver<UserSignUpInput> = async (_, args, { db }) => {
 	return { token, user };
 };
 
+const createOrder: Resolver<OrderCreateArs> = async (
+	_,
+	args,
+	{ db, authUser }
+) => {
+	const { Order } = db;
+	const { data } = args;
+	const { _id, role } = authUser;
+
+	const user = role === UserRole.USER ? _id : data.user || _id;
+
+	const total =
+		(data.items && data.items.reduce((sum, item) => sum + item.total, 0)) ||
+		0;
+
+	return await new Order({ ...data, total, user }).save();
+};
+
 export default {
 	createProduct,
 	updateProduct,
 	deleteProduct,
 	signin,
 	signup,
+	createOrder,
 };
