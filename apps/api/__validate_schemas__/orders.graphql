@@ -5,3 +5,11 @@ query OrdersQuery {
         status
     }
 }
+
+query OrderQuery {
+    order(_id: "") {
+        _id
+        total
+        status
+    }
+}
