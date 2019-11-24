@@ -2,6 +2,7 @@ directive @auth(role: UserRole) on FIELD_DEFINITION
 scalar DateTime
 
 # User
+
 enum UserRole {
     USER
     ADMIN
@@ -31,6 +32,7 @@ type AuthPayload {
 }
 
 # Product
+
 type Product {
 	_id: ID!
 	name: String!
@@ -61,6 +63,7 @@ enum Unit {
 }
 
 # Order
+
 enum OrderStatus {
     WAITING_PAYMENT
     IN_QUEUE
@@ -95,6 +98,7 @@ input OrderUpdateInput {
 }
 
 # OrderItem
+
 type OrderItem {
     _id: ID!
     product: Product!

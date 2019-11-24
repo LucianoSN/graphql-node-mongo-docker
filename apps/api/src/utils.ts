@@ -1,6 +1,6 @@
 import { Document, Model, Types } from 'mongoose';
 import {
-	CheckExistenceOptions,
+	FindDocumentOptions,
 	OrderItemSubdocument,
 	TokenPayload,
 } from './types';
@@ -10,7 +10,7 @@ import { sign, SignOptions } from 'jsonwebtoken';
 const isMongoId = (value: string): boolean => Types.ObjectId.isValid(value);
 
 const findDocument = async <T extends Document>(
-	opts: CheckExistenceOptions
+	opts: FindDocumentOptions
 ): Promise<T> => {
 	const {
 		model,
