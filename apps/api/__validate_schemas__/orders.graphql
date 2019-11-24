@@ -40,6 +40,9 @@ mutation CreateOrderMutation {
             _id
             total
         }
+        user {
+            name
+        }
     }
 }
 

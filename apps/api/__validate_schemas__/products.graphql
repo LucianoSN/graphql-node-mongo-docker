@@ -18,10 +18,10 @@ query ProductQuery{
     }
 }
 
-mutation ProductMutation {
+mutation CreateProductMutation {
     createProduct(data: {
-        name: "Pizza Presunto e Mussarela"
-        price: 30.00
+        name: "Coca-Cola 2l"
+        price: 8
         unit: UN
     })
     {
