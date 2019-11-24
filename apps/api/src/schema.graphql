@@ -132,7 +132,7 @@ type Mutation {
     createOrder(data: OrderCreateInput): Order! @auth
     updateOrder(data: OrderUpdateInput!, _id: ID!): Order! @auth
     deleteOrder(_id: ID!): Order! @auth
-    createProduct(data: ProductCreateInput!): Product!
-    updateProduct(data: ProductUpdateInput!, _id: ID!): Product!
-    deleteProduct(_id: ID!): Product!
+    createProduct(data: ProductCreateInput!): Product! @auth(role: ADMIN)
+    updateProduct(data: ProductUpdateInput!, _id: ID!): Product! @auth(role: ADMIN)
+    deleteProduct(_id: ID!): Product! @auth(role: ADMIN)
 }

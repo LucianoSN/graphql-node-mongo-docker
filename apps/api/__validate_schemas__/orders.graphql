@@ -24,13 +24,13 @@ query OrdersQuery {
     }
 }
 
-query OrderQuery {
-    order(_id: "xx") {
-        _id
-        total
-        status
-    }
-}
+#query OrderQuery {
+#    order(_id: "xx") {
+#        _id
+#        total
+#        status
+#    }
+#}
 
 mutation CreateOrderMutation {
     createOrder {
