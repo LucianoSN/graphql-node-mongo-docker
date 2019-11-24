@@ -150,16 +150,22 @@ const updateOrder: Resolver<OrderUpdateArgs> = async (
 		where,
 	});
 
-	const { itemsToDelete = [] } = args.data;
+	const { itemsToUpdate = [], itemsToDelete = [] } = args.data;
+
+	const foundItemsToUpdate = itemsToUpdate.map(orderItem =>
+		findOrderItem(order.items, orderItem._id, 'update')
+	);
 
 	const foundItemsToDelete = itemsToDelete.map(orderItemId =>
 		findOrderItem(order.items, orderItemId, 'delete')
 	);
 
+	foundItemsToUpdate.forEach((orderItem, index) =>
+		orderItem.set(itemsToUpdate[index])
+	);
 	foundItemsToDelete.forEach(orderItem => orderItem.remove());
 
 	order.user = !isAdmin ? userId : data.user || order.user;
-
 	return order.save();
 };
 
