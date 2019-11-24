@@ -1,5 +1,5 @@
 mutation SignInMutation {
-    signin(data: { email: "fulano@dc.com", password: "12345678" }) {
+    signin(data: { email: "batman@dc.com", password: "12345678" }) {
         token
         user {
             _id

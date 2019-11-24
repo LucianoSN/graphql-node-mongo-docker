@@ -7,7 +7,7 @@
         "url": "http://localhost:4000",
         "headers": {
           "user-agent": "JS GraphQL",
-          "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZGRhZTBlOWFiZWJjYjAwNGM5YWQ4ZjYiLCJyb2xlIjoiVVNFUiIsImlhdCI6MTU3NDYyNTY5OCwiZXhwIjoxNTc0NjMyODk4fQ.I0p7cAVR7BmoUyxFxAwkWpUiUJqGbVkxvXkuBJzepYA"
+          "Authorization": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1ZGQ4MzRiNWUxYWI1YjI5Mzg0MWZkOTciLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE1NzQ2MzcxNTMsImV4cCI6MTU3NDY0NDM1M30.1PiZdkm2fFyWgV-vOqtuEFEpgUX5MmJFLh9i19kyomE"
         },
         "introspect": false
       }

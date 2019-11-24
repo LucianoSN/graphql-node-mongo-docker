@@ -8,6 +8,16 @@ query ProductsQuery{
     }
 }
 
+query ProductsQueryPagination{
+    products(skip: 2, limit: 2) {
+        _id
+        name
+        description
+        price
+        unit
+    }
+}
+
 query ProductQuery{
     product(_id: "5dd8152b7ff39b3344071bd7"){
         _id
@@ -20,8 +30,8 @@ query ProductQuery{
 
 mutation CreateProductMutation {
     createProduct(data: {
-        name: "Coca-Cola 2l"
-        price: 8
+        name: "Batata Frita"
+        price: 2.50
         unit: UN
     })
     {
