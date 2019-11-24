@@ -3,6 +3,24 @@ query OrdersQuery {
         _id
         total
         status
+        user {
+            _id
+            name
+            email
+            role
+        }
+        items {
+            _id
+            quantity
+            total
+            createdAt
+            product {
+                name
+                description
+                price
+                unit
+            }
+        }
     }
 }
 
@@ -14,11 +32,30 @@ query OrderQuery {
     }
 }
 
-#mutation CreateOrderMutation {
-#    createOrder(data: {
-#
-#    })
-#}
+mutation CreateOrderMutation {
+    createOrder {
+        _id
+        total
+        items {
+            _id
+            total
+        }
+    }
+}
+
+mutation UpdateOrderMutation {
+    updateOrder(data: {
+        itemsToAdd: [
+            {
+                product: "5dd8152b7ff39b3344071bd7", quantity: 2, total: 60
+            }
+        ]
+    }, _id: "5ddad934473605026cd12a1a") {
+        _id
+        total
+        status
+    }
+}
 
 #mutation DeleteOrderMutation {
 #    deleteOrder(id: ) { }

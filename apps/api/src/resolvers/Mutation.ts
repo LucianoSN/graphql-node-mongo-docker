@@ -102,10 +102,12 @@ const createOrder: Resolver<OrderCreateArs> = async (
 	const { data } = args;
 	const { _id, role } = authUser;
 
-	const user = role === UserRole.USER ? _id : data.user || _id;
+	const user = role === UserRole.USER ? _id : (data && data.user) || _id;
 
 	const total =
-		(data.items && data.items.reduce((sum, item) => sum + item.total, 0)) ||
+		(data &&
+			data.items &&
+			data.items.reduce((sum, item) => sum + item.total, 0)) ||
 		0;
 
 	return await new Order({ ...data, total, user }).save();

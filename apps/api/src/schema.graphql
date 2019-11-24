@@ -129,7 +129,7 @@ type Query {
 type Mutation {
     signin(data: UserSignInInput!): AuthPayload!
     signup(data: UserSignUpInput!): AuthPayload!
-    createOrder(data: OrderCreateInput!): Order! @auth
+    createOrder(data: OrderCreateInput): Order! @auth
     updateOrder(data: OrderUpdateInput!, _id: ID!): Order! @auth
     deleteOrder(_id: ID!): Order! @auth
     createProduct(data: ProductCreateInput!): Product!
