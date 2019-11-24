@@ -18,6 +18,7 @@ import {
 import { findDocument, findOrderItem, issueToken } from '../utils';
 import { CustomError } from '../erros';
 import { Types } from 'mongoose';
+import { totalmem } from 'os';
 
 const createProduct: Resolver<ProductCreateInput> = (_, args, { db }) => {
 	const { Product } = db;
@@ -155,6 +156,7 @@ const updateOrder: Resolver<OrderUpdateArgs> = async (
 		itemsToUpdate = [],
 		itemsToDelete = [],
 		itemsToAdd = [],
+		status,
 	} = args.data;
 
 	const foundItemsToUpdate = itemsToUpdate.map(orderItem =>
@@ -186,6 +188,9 @@ const updateOrder: Resolver<OrderUpdateArgs> = async (
 	});
 
 	order.user = !isAdmin ? userId : data.user || order.user;
+	order.status = status || order.status;
+	order.total = order.items.reduce((sum, item) => sum + item.total, 0);
+
 	return order.save();
 };
 
