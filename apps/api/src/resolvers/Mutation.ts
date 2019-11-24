@@ -162,4 +162,5 @@ export default {
 	signup,
 	updateOrder,
 	createOrder,
+	deleteOrder,
 };
