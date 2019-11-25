@@ -20,4 +20,5 @@ export interface TokenPayload {
 export interface PaginationArgs {
 	skip: number;
 	limit: number;
+	orderBy: string[];
 }

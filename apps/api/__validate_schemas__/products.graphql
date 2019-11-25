@@ -18,6 +18,16 @@ query ProductsQueryPagination{
     }
 }
 
+query ProductsQuerySorg{
+    products(orderBy: [name_ASC, price_DESC]) {
+        _id
+        name
+        description
+        price
+        unit
+    }
+}
+
 query ProductQuery{
     product(_id: "5dd8152b7ff39b3344071bd7"){
         _id
