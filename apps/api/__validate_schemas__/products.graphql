@@ -8,6 +8,16 @@ query ProductsQuery{
     }
 }
 
+#query ProductsQueryWhere{
+#    products(where: {descriptionEq: }) {
+#        _id
+#        name
+#        description
+#        price
+#        unit
+#    }
+#}
+
 query ProductsQueryPagination{
     products(skip: 2, limit: 2) {
         _id
