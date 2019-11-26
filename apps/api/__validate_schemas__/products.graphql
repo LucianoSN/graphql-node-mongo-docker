@@ -34,6 +34,7 @@ query ProductsQueryWhere{
         unit
     }
 }
+
 query ProductsQueryPagination{
     products(skip: 2, limit: 2) {
         _id

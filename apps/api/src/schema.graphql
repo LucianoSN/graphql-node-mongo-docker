@@ -170,19 +170,19 @@ input OrderWhereInput {
     createdAtNe: DateTime
     createdAtIn: [DateTime!]
     createdAtNin: [DateTime!]
-    createdAtLt: DateTime!
-    createdAtLte: DateTime!
-    createdAtGt: DateTime!
-    createdAtGte: DateTime!
+    createdAtLt: DateTime
+    createdAtLte: DateTime
+    createdAtGt: DateTime
+    createdAtGte: DateTime
 
     updatedAtEq: DateTime
     updatedAtNe: DateTime
     updatedAtIn: [DateTime!]
     updatedAtNin: [DateTime!]
-    updatedAtLt: DateTime!
-    updatedAtLte: DateTime!
-    updatedAtGt: DateTime!
-    updatedAtGte: DateTime!
+    updatedAtLt: DateTime
+    updatedAtLte: DateTime
+    updatedAtGt: DateTime
+    updatedAtGte: DateTime
 
     userEq: ID
     userNe: ID

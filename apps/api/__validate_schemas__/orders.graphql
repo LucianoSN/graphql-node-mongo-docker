@@ -24,13 +24,21 @@ query OrdersQuery {
     }
 }
 
-#query OrderQuery {
-#    order(_id: "xx") {
-#        _id
-#        total
-#        status
-#    }
-#}
+query OrdersQuery {
+    orders(where: {
+        userEq: "5dd834b5e1ab5b293841fd97"
+    }){
+        _id
+        total
+        items {
+            _id
+            total
+        }
+        user {
+            name
+        }
+    }
+}
 
 mutation CreateOrderMutation {
     createOrder {
