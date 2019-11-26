@@ -1,10 +1,12 @@
 import { Document, DocumentQuery, Model, Types } from 'mongoose';
+
 import {
 	FindDocumentOptions,
 	OrderItemSubdocument,
 	PaginationArgs,
 	TokenPayload,
 } from './types';
+
 import { CustomError } from './erros';
 import { sign, SignOptions } from 'jsonwebtoken';
 
@@ -92,6 +94,36 @@ const buildOrderByResolvers = (fields: string[]): Record<string, string> =>
 		{}
 	);
 
+const operators = [
+	{ name: 'Eq', op: '$eq' },
+	{ name: 'Ne', op: '$ne' },
+	{ name: 'Lt', op: '$lt' },
+	{ name: 'Lte', op: '$lte' },
+	{ name: 'Gt', op: '$gt' },
+	{ name: 'Gte', op: '$gte' },
+	{ name: 'In', op: '$in' },
+	{ name: 'Nin', op: '$nin' },
+	{ name: 'Regex', op: '$regex' },
+	{ name: 'Options', op: '$options' },
+];
+
+const buildConditions = (where: Record<string, any>): Record<string, any> =>
+	Object.keys(where).reduce((conditions, whereKey) => {
+		const operator = operators.find(({ name }) => {
+			return new RegExp(`${name}$`).test(whereKey);
+		});
+
+		const fieldName = operator
+			? whereKey.replace(operator.name, '')
+			: '$' + whereKey.toLowerCase();
+
+		const fieldValue = operator
+			? { ...conditions[fieldName], [operator.op]: where[whereKey] }
+			: where[whereKey].map(buildConditions);
+
+		return { ...conditions, [fieldName]: fieldValue };
+	}, {});
+
 export {
 	isMongoId,
 	findOrderItem,
@@ -99,4 +131,5 @@ export {
 	issueToken,
 	paginateAndSort,
 	buildOrderByResolvers,
+	buildConditions,
 };

@@ -8,15 +8,21 @@ query ProductsQuery{
     }
 }
 
-#query ProductsQueryWhere{
-#    products(where: {descriptionEq: }) {
-#        _id
-#        name
-#        description
-#        price
-#        unit
-#    }
-#}
+query ProductsQueryWhere{
+    products(where: {
+        priceGt: 6,
+        priceLt: 10,
+        OR: [
+            {nameEq: "Coca-Cola 2l"}
+        ]
+    }) {
+        _id
+        name
+        description
+        price
+        unit
+    }
+}
 
 query ProductsQueryPagination{
     products(skip: 2, limit: 2) {

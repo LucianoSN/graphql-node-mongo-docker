@@ -97,10 +97,10 @@ input ProductWhereInput {
     priceNe: Float
     priceIn: [Float!]
     priceNin: [Float!]
-    priceLt: Float!
-    priceLte: Float!
-    priceGt: Float!
-    priceGte: Float!
+    priceLt: Float
+    priceLte: Float
+    priceGt: Float
+    priceGte: Float
 
     AND: [ProductWhereInput!]
     OR: [ProductWhereInput!]
@@ -156,10 +156,10 @@ input OrderWhereInput {
     totalNe: Float
     totalIn: [Float!]
     totalNin: [Float!]
-    totalLt: Float!
-    totalLte: Float!
-    totalGt: Float!
-    totalGte: Float!
+    totalLt: Float
+    totalLte: Float
+    totalGt: Float
+    totalGte: Float
 
     statusEq: OrderStatus
     statusNe: OrderStatus
