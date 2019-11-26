@@ -107,7 +107,9 @@ const operators = [
 	{ name: 'Options', op: '$options' },
 ];
 
-const buildConditions = (where: Record<string, any>): Record<string, any> =>
+const buildConditions = (
+	where: Record<string, any> = {}
+): Record<string, any> =>
 	Object.keys(where).reduce((conditions, whereKey) => {
 		const operator = operators.find(({ name }) => {
 			return new RegExp(`${name}$`).test(whereKey);

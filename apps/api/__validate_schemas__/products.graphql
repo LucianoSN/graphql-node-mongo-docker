@@ -10,10 +10,9 @@ query ProductsQuery{
 
 query ProductsQueryWhere{
     products(where: {
-        priceGt: 6,
-        priceLt: 10,
         OR: [
-            {nameEq: "Coca-Cola 2l"}
+            { nameEq: "Coca-Cola 2l" },
+            { priceGt: 5, priceLt: 10 }
         ]
     }) {
         _id
@@ -24,6 +23,17 @@ query ProductsQueryWhere{
     }
 }
 
+query ProductsQueryWhere{
+    products(where: {
+             priceGt: 20
+    }) {
+        _id
+        name
+        description
+        price
+        unit
+    }
+}
 query ProductsQueryPagination{
     products(skip: 2, limit: 2) {
         _id
