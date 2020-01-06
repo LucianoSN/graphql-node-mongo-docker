@@ -18,7 +18,6 @@ import {
 import { findDocument, findOrderItem, issueToken } from '../utils';
 import { CustomError } from '../erros';
 import { Types } from 'mongoose';
-import { totalmem } from 'os';
 
 const createProduct: Resolver<ProductCreateArgs> = (_, args, { db }) => {
 	const { Product } = db;
